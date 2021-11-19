@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间   如果sqlSession对象要找到  selelct的话通过  命名空间。select_user_info-->
+<mapper namespace="com.lyl.cloudfactory.dao.UserDao">
+    <!--根据客户编号获取客户信息   提供给增删改查操作   的路径-->
+    <!-- parameterType="Integer"     传递参数 -->
+    <!-- resultType="com.dao.User"   返回对象 -->
+    <!-- #{}就是占位符 -->
+
+    <!--    查询标签-->
+    <select id="getUserByID" parameterType="String"
+            resultType="User">
+        select * from User where id = #{id}
+    </select>
+
+
+    <select id="getUserByAccount" parameterType="String"
+            resultType="User">
+        select * from User where account = #{account}
+    </select>
+
+    <select id="getUserByAccountAndPassword" parameterType="String"
+            resultType="User">
+        select * from User where account = #{account} and password = #{password}
+    </select>
+
+    <select id="getUserList"
+            resultType="User">
+        select * from User
+    </select>
+    <!--    添加标签-->
+    <insert id="addUser" parameterType="User">
+        insert into User(id,account,password,name,type)
+        values(#{id},#{account},#{password},#{name},#{type})
+    </insert>
+    <!--删除标签-->
+    <delete id="deleteUser" parameterType="String">
+        delete from User where account = #{account}
+    </delete>
+    <!--    更新标签-->
+
+    <update id="updateUser" parameterType="User">
+        update User set
+                        id=#{id},account=#{account},password=#{password},name=#{name},type=#{type}
+        where account = #{account}
+
+    </update>
+</mapper>
+

@@ -1,0 +1,58 @@
+.leftFont{
+    font-family: 微软雅黑;
+    font-weight: bold;
+    font-size: 20px;
+}
+#logo{
+    position:absolute;
+    top : 10px;
+    left: 30px;
+    height: 50px;
+    width: 50px;
+}
+#time{
+    font-size: 30px;
+    color: green;
+    font-family: 黑体;
+    position : absolute;
+    top : 30px;
+    left: 80px;
+}
+.left-side{
+    width: 200px;
+}
+.menu-list{
+    position: relative;
+    left: 10px;
+}
+.header-title{
+    position: relative;
+    top: 10px;
+    font-size: 20px;
+}
+#uptable{
+    display: block;
+    position : relative;
+}
+#uptable h2{
+    display: inline-block;
+}
+#uptable a{
+    display: inline-block;
+    position: relative;
+    top: 10px;
+    font-size: 20px;
+    left: 510px;
+    text-decoration: none;
+}
+a span{
+    position: relative;;
+    right: 10px;
+}
+a img{
+    position: relative;;
+    top:-3px;
+    right: 3px;
+    width: 30px;
+    height: 30px;
+}

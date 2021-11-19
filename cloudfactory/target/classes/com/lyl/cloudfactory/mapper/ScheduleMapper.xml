@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace表示命名空间   如果sqlSession对象要找到  selelct的话通过  命名空间。select_user_info-->
+<mapper namespace="com.lyl.cloudfactory.dao.ScheduleDao">
+    <!--根据客户编号获取客户信息   提供给增删改查操作   的路径-->
+    <!-- parameterType="Integer"     传递参数 -->
+    <!-- resultType="com.dao.User"   返回对象 -->
+    <!-- #{}就是占位符 -->
+
+    <!--    查询标签-->
+    <select id="getScheduleByBidID" parameterType="String"
+            resultType="Schedule">
+        select * from Schedule where bidID = #{bidID}
+    </select>
+
+
+    <select id="getScheduleByEquipmentID" parameterType="String"
+            resultType="Schedule">
+        select * from Schedule where BidEquipmentID = #{BidEquipmentID}
+    </select>
+
+
+
+    <select id="getScheduleList"
+            resultType="Schedule">
+        select * from Schedule
+    </select>
+
+    <!--    添加标签-->
+    <insert id="addSchedule" parameterType="Schedule">
+        insert into Schedule(bidID,equipmentID,startTime,endTime)
+        values(#{bidID},#{equipmentID},#{startTime},#{endTime})
+    </insert>
+    <!--删除标签-->
+
+    <delete id="deleteScheduleBybidID" parameterType="String">
+        delete from Schedule where bidID = #{bidID}
+    </delete>
+    <!--    更新标签-->
+
+    <update id="updateSchedule" parameterType="Schedule">
+        update Schedule set
+                            bidID=#{bidID},equipmentID=#{equipmentID},startTime=#{startTime},endTime=#{endTime}
+        where bidID = #{bidID}
+
+    </update>
+</mapper>
+
